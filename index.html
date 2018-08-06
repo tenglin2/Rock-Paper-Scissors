@@ -1,107 +1,46 @@
-<!--This is a short JavaScript program that is done entirely on the web console. It's basically rock, paper, scissors against a computer. -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Rock Paper Scissors</title>
+  <title>Rock, Paper, Scissors</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>
 <body>
-  <script>
-    //Initial Announcement and Instruction of the Program. Its Purpose.
-    console.log("Hello Player 1, this is a program that plays Rock, Paper, Scissors. First to 5 wins.");
-    //Keeping scores and looping until a winner is found.
-    var playerScore = 0, computerScore = 0;
-    while((playerScore < 5) && (computerScore < 5)){
-      //Taking the user input and validating to make sure it works properly.
-      var validChoice = false;
-      while(validChoice === false){
-        var playerChoice = prompt("Enter rock(r), paper(p), or scissors(s).");
-        playerChoice = playerChoice.toLowerCase();
-        console.log("You entered " + playerChoice.toLowerCase() + ".");
-        //User Validation. Defensive Programming.
-        if (playerChoice === "r" || playerChoice === "p" || playerChoice === "s" || playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors"){
-          validChoice = true;
-        }
-        if (validChoice === false){
-          alert("You did not enter a valid choice, please do it again.");
-        }
-      }
-      //Chopping playerChoice to first letter for more convenient programming.
-      playerChoice = playerChoice.slice(0, 1);
-      //This is how we determine the computer's choice. Using math random method, we get a number between 1-3 which will be used to determine what choice it has.
-      var number = Math.floor(3*Math.random() + 1) ;
-      var computerChoice;
-      //Switch statements to establish computerChoice.
-      switch (number){
-        case 1:
-          computerChoice = "r"
-          break;
-        case 2:
-          computerChoice = "p";
-          break;
-        case 3:
-          computerChoice = "s";
-          break;
-        default:
-          console.log("Something went horribly wrong.");
-      }
-      console.log("The computer's choice is " + computerChoice);
+
+  <div class="topbar">
+    <h1 id="title">Animal Rock Paper Scissors</h1>
+    <button type="button">Reset Game</button>
+  </div>
+
+  <div class="endtext">
+    <p id="congrats"></p>
+    <p id="maybe"></p>
+  </div>
 
 
-      //Determining whether the player or computer wins the specified round by comparing their choices. Output a message and update the scores accordingly.
-      if (playerChoice === "r"){
-        if (computerChoice === "s"){
-          console.log("Rock beats Scissors, you win 1 point!")
-          playerScore++;
-        }else if(computerChoice === "p"){
-          console.log("Rock loses to Paper, computer wins 1 point :(")
-          computerScore++;
-        }else{
-          console.log("Rock ties with Rock, no winner.")
-        }
-      }else if(playerChoice === "p"){
-        if (computerChoice === "r"){
-          console.log("Paper beats Rock, you win 1 point!")
-          playerScore++;
-        }else if (computerChoice === "s"){
-          console.log("Paper loses to Scissors, computer wins 1 point :(")
-          computerScore++;
-        }else{
-          console.log("Paper ties with Paper, no winner.")
-        }
-      }else if(playerChoice === "s"){
-        if (computerChoice === "p"){
-          console.log("Scissors beats Paper, you win 1 point!")
-          playerScore++;
-        }else if (computerChoice === "r"){
-          console.log("Scissors loses to Rock, computer wins 1 point :(")
-          computerScore++;
-        }else{
-          console.log("Scissors ties with Scissors, no winner.")
-        }
-      }
-      console.log("Player: " + playerScore + " Computer: " + computerScore);
-    }
 
-    //When the while loop finishes, we know that either the player or computer has reached 5 points.
+  <div class="main">
+    <img src="images/slug.jpg" alt="slug" id="pic1" />
+    <img src="images/frog.jpg" alt="frog" id="pic2"/>
+    <img src="images/snake.jpg" alt="snake" id="pic3" />
+  </div>
 
-    //Output message based on winner.
-    if(playerScore === 5){
-      console.log("Congratulations, you won the game!");
-    }else{
-      console.log("Sorry, you lost to the computer :(")
-    }
+  <div class="scoreboard">
+    <h1>Player : Tie : Computer</h1>
+    <p class="scores">
+      <span id="pscore">0</span> :
+      <span id="tscore">0</span> :
+      <span id="cscore">0</span>
+    </p>
+  </div>
 
-    //Prompt to reload the webpage and play again.
-    var playAgain = confirm("Want to play again?");
-    console.log(playAgain);
-    if (playAgain === true){
-      location.reload();
-    }else{
-      console.log("Okay, have a nice day!");
-    }
+  <div class="actiontext">
+    <p id="compChoice"></p>
+    <p id="results"></p>
+  </div>
 
-  </script>
+
+  <script src="jst.js"></script>
 </body>
 </html>
