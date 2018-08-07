@@ -1,7 +1,5 @@
-/*
-Good job so far. Pretty much done with all the javascript stuff. Maybe a few more animations. What's left is to really get into styling the page, making it look pretty. I need to correct the margins and padding, cut off white space of images, add more fonts and borders, etc.
-Don't Forgot to Add Comments, edit the ReadMe.
-*/
+
+//Declaring all the constants and variables that I will be manipulating.
 const rock = document.querySelector("#pic1");
 const paper = document.querySelector("#pic2");
 const scissors = document.querySelector("#pic3");
@@ -27,6 +25,8 @@ var maybeText = document.getElementById("maybe");
 
 var input;
 
+
+//Reset button will reset everything on the event of clicking it.
 const btn = document.querySelector("button");
 btn.addEventListener("click", (e) => {
   pScore = 0;
@@ -42,6 +42,7 @@ btn.addEventListener("click", (e) => {
   maybeText.textContent = "";
 })
 
+//Used to adhere to threeway deadlock theme, changing choices according to their animal.
 function toAnimal(input){
   if (input === "rock"){
     return "Slug";
@@ -54,6 +55,7 @@ function toAnimal(input){
   }
 }
 
+//Function called in the onClick events for the images. Basically chooses the computerChoice by using a Math.random function and multiplying by 3. Also outputs a text based on the result.
 function getComputerChoice(){
   var number = Math.floor(3*Math.random() + 1);
   switch (number){
@@ -72,6 +74,8 @@ function getComputerChoice(){
   compChoice.textContent = `The Computer Chose ${computerChoice}`;
 }
 
+
+//Using multiple if/else statements, we compare the choices of the player and computer and determine a roundWinner. We adjust the scores according to the result and call the updateScore function which takes in several parameters.
 function findRoundWinner(playerChoice, computerChoice) {
   if (playerChoice === "rock"){
     if (computerChoice === "scissors"){
@@ -112,6 +116,7 @@ function findRoundWinner(playerChoice, computerChoice) {
   }
 }
 
+//The updateScore function is mainly textual. Using the information or roundWinner, we output the correct text for the situation. In the case where either the player or the computer reaches 5 points, we output a congrats or failure text and prompt the user to reset the game.
 function updateScore(pScore, cScore, tScore, playerChoice, computerChoice, roundWinner){
   if (roundWinner === "player"){
     playerScore.textContent = pScore;
@@ -129,16 +134,17 @@ function updateScore(pScore, cScore, tScore, playerChoice, computerChoice, round
     if (pScore === 5 ){
       finalWinner = "player";
       congratsText.textContent = "Congratulations, you just won the game!";
-      maybeText.textContent = "Feel Free to Keep Play or Press the Reset Button.";
+      maybeText.textContent = "Feel free to keep playing or press the reset button.";
     } else if(cScore === 5){
       finalWinner = "computer";
       congratsText.textContent = "Sorry, Computer beat you :(";
-      maybeText.textContent = "Feel Free to Keep Play or Press the Reset Button.";
+      maybeText.textContent = "Feel free to keep playing or press the reset button.";
     }
   }
 
 }
 
+//On click, we know what the player chose based on the image, so we can set playerChoice and start the whole process. Each click calls the findRoundWinner function which compares the player and computer choice.
 rock.addEventListener("click", (e) =>{
   playerChoice = "rock";
   computerChoice = getComputerChoice();

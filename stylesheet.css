@@ -1,45 +1,73 @@
-body{
-  background-color: lightblue;
+html{
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+body{
+  background-color:  #abebc6;
+}
+
 .main img{
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   display: inline-block;
-  vertical-align: middle;
-  margin-right: 80px;
+  margin-right: 30px;
+  margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.main img:hover{
+  transform: translateY(1px);
+  transform: translateX(1px);
+}
 .topbar{
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 #title{
   display: inline-block;
   text-align: center;
-  padding-left: 80px;
+  margin-left: 130px;
+  font-family: Verdana, sans-serif;
+  font-size: 30px;
+  color:  #1f618d;
 }
 .topbar button{
   display: inline-block;
   float: right;
-  margin-top: 30px;
-  margin-right: 20px;
+  margin-top: 25px;
+  margin-right: 10px;
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  height: 32px;
+  font-weight: 800;
+  border-radius: 4px;
+  background-color:  #2874a6;
+  color: black;
+  border: none;
 }
+.topbar button:hover{
+  transform: translateY(1px);
+}
+
 .endtext{
   text-align: center;
 }
 
 .main{
-  margin: auto;
   text-align: center;
+  margin-left: 100px;
 }
 
 .scoreboard{
   text-align: center;
-  margin: 50px 0;
+  margin: 30px 0;
+  font-family: Verdana, sans-serif;
+  color: #1f618d;
 }
 .scoreboard h1{
   margin-left: 50px;
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 .scoreboard span{
   margin: 0px 20px;
@@ -47,4 +75,18 @@ body{
 
 .actiontext{
   text-align: center;
+  font-family: Verdana, sans-serif;
+  color: black;
+  font-size: 14px;
+}
+
+.endtext #congrats{
+  font-size: 32px;
+  font-family: Verdana, sans-serif;
+  color: #1f618d;
+}
+.endtext #maybe{
+  font-size: 20px;
+  font-family: Verdana, sans-serif;
+  color: #1f618d;
 }
