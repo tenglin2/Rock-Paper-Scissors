@@ -1,2 +1,2 @@
-Odin Project Course. Javascript curriculum. Rock Paper Scissors.
+## Rock, Paper, Scissors Project
 Click [Here](https://tenglin2.github.io/Rock-Paper-Scissors) to Play
