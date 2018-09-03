@@ -1,5 +1,4 @@
-
-//Declaring all the constants and variables that I will be manipulating.
+// Declaring all the constants and variables that I will be manipulating.
 const rock = document.querySelector("#pic1");
 const paper = document.querySelector("#pic2");
 const scissors = document.querySelector("#pic3");
@@ -25,8 +24,7 @@ var maybeText = document.getElementById("maybe");
 
 var input;
 
-
-//Reset button will reset everything on the event of clicking it.
+// Reset button will reset everything on the event of clicking it.
 const btn = document.querySelector("button");
 btn.addEventListener("click", (e) => {
   pScore = 0;
@@ -42,7 +40,7 @@ btn.addEventListener("click", (e) => {
   maybeText.textContent = "";
 })
 
-//Used to adhere to threeway deadlock theme, changing choices according to their animal.
+// Used to adhere to threeway deadlock theme, changing choices according to their animal.
 function toAnimal(input){
   if (input === "rock"){
     return "Slug";
@@ -55,7 +53,8 @@ function toAnimal(input){
   }
 }
 
-//Function called in the onClick events for the images. Basically chooses the computerChoice by using a Math.random function and multiplying by 3. Also outputs a text based on the result.
+// Function called in the onClick events for the images. Basically chooses the computerChoice by using a Math.random function and multiplying by 3.
+// Also outputs a text based on the result.
 function getComputerChoice(){
   var number = Math.floor(3*Math.random() + 1);
   switch (number){
@@ -75,7 +74,8 @@ function getComputerChoice(){
 }
 
 
-//Using multiple if/else statements, we compare the choices of the player and computer and determine a roundWinner. We adjust the scores according to the result and call the updateScore function which takes in several parameters.
+// Using multiple if/else statements, we compare the choices of the player and computer and determine a roundWinner.
+// We adjust the scores according to the result and call the updateScore function which takes in several parameters.
 function findRoundWinner(playerChoice, computerChoice) {
   if (playerChoice === "rock"){
     if (computerChoice === "scissors"){
@@ -116,7 +116,8 @@ function findRoundWinner(playerChoice, computerChoice) {
   }
 }
 
-//The updateScore function is mainly textual. Using the information or roundWinner, we output the correct text for the situation. In the case where either the player or the computer reaches 5 points, we output a congrats or failure text and prompt the user to reset the game.
+// The updateScore function is mainly textual. Using the information or roundWinner, we output the correct text for the situation.
+// In the case where either the player or the computer reaches 5 points, we output a congrats or failure text and prompt the user to reset the game.
 function updateScore(pScore, cScore, tScore, playerChoice, computerChoice, roundWinner){
   if (roundWinner === "player"){
     playerScore.textContent = pScore;
@@ -144,7 +145,8 @@ function updateScore(pScore, cScore, tScore, playerChoice, computerChoice, round
 
 }
 
-//On click, we know what the player chose based on the image, so we can set playerChoice and start the whole process. Each click calls the findRoundWinner function which compares the player and computer choice.
+// On click, we know what the player chose based on the image, so we can set playerChoice and start the whole process.
+// Each click calls the findRoundWinner function which compares the player and computer choice.
 rock.addEventListener("click", (e) =>{
   playerChoice = "rock";
   computerChoice = getComputerChoice();
